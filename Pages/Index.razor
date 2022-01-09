@@ -13,13 +13,16 @@ Welcome to your new app.
 
 <Form>
     <Validations Model="@this" ValidateOnLoad="false">
-        <Field>
-            <TextEdit @bind-Text="SingleLineText">
-                <Feedback>
-                    <ValidationError/>
-                </Feedback>
-            </TextEdit>
-        </Field>
+        @*This TextEdit just here to demonstrate relationship to other components in form*@
+        <Validation>
+            <Field>
+                <TextEdit @bind-Text="SingleLineText">
+                    <Feedback>
+                        <ValidationError/>
+                    </Feedback>
+                </TextEdit>
+            </Field>
+        </Validation>
         <Editor Field="@(() => TinyMceRichText)" @bind-Value="TinyMceRichText"></Editor>
     </Validations>
 </Form>
