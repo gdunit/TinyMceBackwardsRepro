@@ -1,0 +1,33 @@
+﻿@using Blazorise
+@using System.ComponentModel.DataAnnotations
+@using TinyMCE.Blazor
+@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<Form>
+    <Validations Model="@this" ValidateOnLoad="false">
+        <Field>
+            <TextEdit @bind-Text="SingleLineText">
+                <Feedback>
+                    <ValidationError/>
+                </Feedback>
+            </TextEdit>
+        </Field>
+        <Editor Field="@(() => TinyMceRichText)" @bind-Value="TinyMceRichText"></Editor>
+    </Validations>
+</Form>
+
+
+@code{
+
+    [Required]
+    public string? SingleLineText { get; set; }
+    public string? TinyMceRichText { get; set; } = "Hello";
+}
